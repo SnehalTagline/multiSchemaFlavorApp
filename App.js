@@ -1,4 +1,4 @@
-import {SafeAreaView, Text, TextInput, View} from 'react-native';
+import {Platform, SafeAreaView, Text, TextInput, View} from 'react-native';
 import React, {memo, useCallback, useEffect, useMemo, useState} from 'react';
 import deviceInfoModule from 'react-native-device-info';
 import SplashScreen from 'react-native-splash-screen';
@@ -47,11 +47,20 @@ const App = () => {
   const manageTexts = () => {
     const bundleId = deviceInfoModule.getBundleId();
     if (bundleId?.includes('red')) {
-      return 'This is Red Android App';
+      return Platform.select({
+        ios: 'This is Red iOS App',
+        android: 'This is Red Android App',
+      });
     } else if (bundleId?.includes('blue')) {
-      return 'This is Blue Android App';
+      return Platform.select({
+        ios: 'This is Blue iOS App',
+        android: 'This is Blue Android App',
+      });
     } else if (bundleId?.includes('green')) {
-      return 'This is Green Android App';
+      return Platform.select({
+        ios: 'This is Green iOS App',
+        android: 'This is Green Android App',
+      });
     }
   };
 
