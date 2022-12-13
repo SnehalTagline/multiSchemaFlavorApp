@@ -1,0 +1,12 @@
+{
+  "apps": {
+    "refnext": {
+      "bundleId": "com.refnext.org",
+      "ismainApp": "true"
+    },
+    "create": {
+      "bundleId": "com.create.org",
+      "ismainApp": "false"
+    }
+  }
+}
